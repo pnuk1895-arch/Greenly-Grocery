@@ -4,7 +4,7 @@ export default function BestSellingProduct()
 {
     return(
         //  <!-- Best selling -->
-      <section className="section">
+      <section className="bestSellingSection">
         <div className="section-header">
           <div className="section-title">Best Selling Products</div>
           <div className="view-all">View All</div>

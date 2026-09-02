@@ -2,7 +2,7 @@ import './HomePage.css'
 import TopBar  from '../../component/HomeComponents/TopBar.jsx'
 // import SideBar from '../../component/HomeComponents/SideBar.jsx'
 import HeroSection from '../../component/HomeComponents/HeroSection.jsx'
-import PerkSection from '../../component/HomeComponents/PerkSection.jsx'
+// import PerkSection from '../../component/HomeComponents/PerkSection.jsx'
 import CategoriesSection from '../../component/HomeComponents/CategoriesSection.jsx'
 import BestSellingProduct from '../../component/HomeComponents/BestSellingProduct.jsx'
 
@@ -16,7 +16,7 @@ export default function HomePage(){
             {/* <!-- Main --> */}
             <main className="main">
                 <HeroSection/>
-                <PerkSection/>
+                {/* <PerkSection/> */}
                 <CategoriesSection/>
                 <BestSellingProduct/>
             </main>

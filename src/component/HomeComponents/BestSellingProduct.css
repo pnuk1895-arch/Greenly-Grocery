@@ -1,3 +1,7 @@
+.bestSellingSection {
+  width: 100dvw;
+}
+
 /* Product grid */
 .product-grid {
   display: flex;

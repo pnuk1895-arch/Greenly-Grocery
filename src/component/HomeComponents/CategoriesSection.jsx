@@ -4,7 +4,7 @@
  {
     return(
         // <!-- Categories -->Name
-      <section className="section">
+      <section className="Categories-section">
         <div className="section-header">
           <div className="section-title">Shop by Categories</div>
           <div className="view-all">View All</div>

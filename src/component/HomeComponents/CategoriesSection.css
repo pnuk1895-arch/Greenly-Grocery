@@ -1,3 +1,8 @@
+.Categories-section {
+  width: 100dvw;
+}
+
+
 /* Categories grid */
 .category-grid {
   display: flex;

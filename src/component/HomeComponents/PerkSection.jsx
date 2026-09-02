@@ -1,4 +1,4 @@
-import "./perkSection.css"
+import "./PerkSection.css"
 
 export default function PerkSection()
 {

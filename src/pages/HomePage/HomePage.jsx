@@ -1,6 +1,6 @@
 import './HomePage.css'
 import TopBar  from '../../component/HomeComponents/TopBar.jsx'
-import SideBar from '../../component/HomeComponents/Sidebar.jsx'
+import SideBar from '../../component/HomeComponents/SideBar.jsx'
 import HeroSection from '../../component/HomeComponents/HeroSection.jsx'
 import PerkSection from '../../component/HomeComponents/PerkSection.jsx'
 import CategoriesSection from '../../component/HomeComponents/CategoriesSection.jsx'

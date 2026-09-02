@@ -1,0 +1,91 @@
+/* Hero */
+.hero {
+  position: relative;
+  background-color: #e9f5ea;
+  border-radius: 14px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.hero-text {
+  max-width: 420px;
+  z-index: 2;
+}
+
+.hero-line1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #1e8e3e;
+  line-height: 1.15;
+}
+
+.hero-line2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: #4a4a4a;
+  margin-bottom: 24px;
+}
+
+.shop-now-btn {
+  background-color: #1e8e3e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: default;
+}
+
+.discount-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 40px;
+  top: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+.discount-top,
+.discount-bottom {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.discount-value {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1e8e3e;
+  line-height: 1;
+}
+
+.hero-image {
+  width: 420px;
+  height: 260px;
+  background-color: #d7ead9;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e8e3e;
+  font-size: 14px;
+  font-weight: 600;
+}

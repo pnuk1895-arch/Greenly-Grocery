@@ -1,0 +1,58 @@
+/* Perks */
+.perks {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  margin-top: 24px;
+  padding: 18px 0;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 28px;
+  border-left: 1px solid #eee;
+}
+
+.perk:first-child {
+  border-left: none;
+}
+
+.perk-icon {
+  font-size: 24px;
+}
+
+.perk-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.perk-sub {
+  font-size: 12px;
+  color: #7a7a7a;
+}
+
+/* Section header */
+.section {
+  margin-top: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.view-all {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e8e3e;
+}

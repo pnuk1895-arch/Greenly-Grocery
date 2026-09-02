@@ -56,3 +56,120 @@
   font-weight: 600;
   color: #1e8e3e;
 }
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   Desktop 1440px+ / Laptop-Tablet Landscape ~1024px /
+   Tablet Portrait ~768px (2x2 grid) /
+   Mobile Large 425 / Mobile 375 / Small Mobile 320
+   HTML structure unchanged — layout only via CSS.
+   ========================================================= */
+
+/* ----- Laptop / Tablet Landscape (max 1439px, snapshot 1024px) -----
+   Stays a single row, just tighter. */
+@media (max-width: 1439px) {
+  .perks {
+    padding: 14px 0;
+  }
+  .perk {
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .perk-icon {
+    font-size: 20px;
+  }
+  .perk-title {
+    font-size: 13px;
+  }
+  .perk-sub {
+    font-size: 11px;
+  }
+  .section {
+    margin-top: 24px;
+  }
+  .section-title {
+    font-size: 18px;
+  }
+}
+
+/* ----- Tablet Portrait and below (max 1023px, snapshot 768px) -----
+   Switches to a 2x2 grid; side dividers no longer make sense so
+   they're replaced with a light row divider instead. */
+@media (max-width: 1023px) {
+  .perks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 16px;
+    column-gap: 8px;
+    padding: 16px;
+  }
+  .perk {
+    border-left: none;
+    padding: 0;
+  }
+  .perk-icon {
+    font-size: 19px;
+  }
+  .perk-title {
+    font-size: 12.5px;
+  }
+  .perk-sub {
+    font-size: 10.5px;
+  }
+}
+
+/* ----- Mobile: Large 425 / Standard 375 / Small 320 (max 767px) ----- */
+@media (max-width: 767px) {
+  .perks {
+    row-gap: 14px;
+    column-gap: 6px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+  .perk {
+    gap: 8px;
+  }
+  .perk-icon {
+    font-size: 17px;
+  }
+  .perk-title {
+    font-size: 12px;
+  }
+  .perk-sub {
+    font-size: 10px;
+  }
+
+  .section {
+    margin-top: 22px;
+  }
+  .section-header {
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 16px;
+  }
+  .view-all {
+    font-size: 12px;
+  }
+}
+
+/* ----- Small Mobile (max 340px) ----- */
+@media (max-width: 340px) {
+  .perks {
+    padding: 12px;
+    row-gap: 12px;
+  }
+  .perk-icon {
+    font-size: 15px;
+  }
+  .perk-title {
+    font-size: 11px;
+  }
+  .perk-sub {
+    font-size: 9px;
+  }
+  .section-title {
+    font-size: 15px;
+  }
+}

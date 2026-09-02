@@ -17,7 +17,9 @@ export default function HeroSection(){
           <div className="discount-bottom">OFF</div>
         </div>
 
-        <div className="hero-image">basket of fresh produce image</div>
+        <div className="hero-image">
+          <img src="" alt="" />
+        </div>
       </section>
     )
 }

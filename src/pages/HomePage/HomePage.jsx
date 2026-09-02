@@ -1,6 +1,6 @@
 import './HomePage.css'
 import TopBar  from '../../component/HomeComponents/TopBar.jsx'
-import SideBar from '../../component/HomeComponents/SideBar.jsx'
+// import SideBar from '../../component/HomeComponents/SideBar.jsx'
 import HeroSection from '../../component/HomeComponents/HeroSection.jsx'
 import PerkSection from '../../component/HomeComponents/PerkSection.jsx'
 import CategoriesSection from '../../component/HomeComponents/CategoriesSection.jsx'
@@ -13,7 +13,6 @@ export default function HomePage(){
          <TopBar/>
          {/* <!-- Body --> */}
         <div className="body-layout">
-            <SideBar/>
             {/* <!-- Main --> */}
             <main className="main">
                 <HeroSection/>

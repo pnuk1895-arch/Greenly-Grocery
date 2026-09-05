@@ -12,18 +12,18 @@ export default function TopBar() {
     let toggleSpan="block h-0.5 w-full bg-[#1e8e3e] rounded-xs"
 
     return (
-        <header className=" w-full bg-[#ffffff] border-b border-[#eef1ee] sticky top-0 z-50 font-custom overflow-hidden  " >
+        <header className=" w-full bg-[#ffffff] border-b border-[#eef1ee] sticky top-0 z-50 font-custom " >
             <div className=" mx-auto px-10 py-4 flex justify-between items-center gap-6  ">
 
                 {/* <!-- Mobile menu toggle --> */}
-                <button className="hidden max-[1444px]:flex max-[1444px]:-order-1 flex-col justify-center gap-1.5 w-8 h-8  bg-transparent border-none cursor-pointer shrink-0 " aria-label="Open menu">
+                <button className="hidden max-[1444px]:flex max-[1444px]: flex-col justify-center gap-1.5 w-8 h-8  bg-transparent border-none cursor-pointer shrink-0 " aria-label="Open menu">
                     <span className={toggleSpan}></span>
                     <span className={toggleSpan}></span>
                     <span className={toggleSpan}></span>
                 </button>
 
                 {/* <!-- Logo -->Name */}
-                <div className="flex items-center gap-2 shrink-0  ">
+                <div className="flex items-center gap-2 shrink-0 ">
                     <img src={logo} className="w-10 h-10 flex justify-center items-center rounded-2xl " >
                     </img>
                     <span className="flex flex-col ">
@@ -34,7 +34,7 @@ export default function TopBar() {
 
                 {/* <!-- Nav --> */}
                 <nav className="flex flex-1 justify-center max-[1444px]:hidden text-base " aria-label="Primary ">
-                    <ul className='flex items-center gap-7'>
+                    <ul className='flex items-center gap-8'>
                         <li><Link to="#" className={ ` ${ link } ${ active } `} >Home</Link></li>
                         <li><Link to="#" className={` ${ link }`}  >Categories</Link></li>
                         <li><Link to="#" className={` ${ link }`} >Deals</Link></li>

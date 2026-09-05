@@ -12,15 +12,15 @@ export default function HomePage(){
     <div className=''>
          <TopBar/>
          {/* <!-- Body --> */}
-        {/* <div className="flex justify-center"> */}
+        <div className="flex justify-center">
             {/* <!-- Main --> */}
-            {/* <main> */}
-                {/* <HeroSection/> */}
+            <main>
+                <HeroSection/>
                 {/* <PerkSection/> */}
                 {/* <CategoriesSection/> */}
                 {/* <BestSellingProduct/> */}
-            {/* </main> */}
-        {/* </div> */}
+            </main>
+        </div>
     </div>
     )
 }

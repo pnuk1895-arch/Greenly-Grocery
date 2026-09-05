@@ -1,4 +1,4 @@
-import './HomePage.css'
+// import './HomePage.css'
 import TopBar  from '../../component/HomeComponents/TopBar.jsx'
 // import SideBar from '../../component/HomeComponents/SideBar.jsx'
 import HeroSection from '../../component/HomeComponents/HeroSection.jsx'
@@ -9,18 +9,18 @@ import BestSellingProduct from '../../component/HomeComponents/BestSellingProduc
 export default function HomePage(){
     return(
         
-    <div className='HomeContainer'>
+    <div className=''>
          <TopBar/>
          {/* <!-- Body --> */}
-        <div className="body-layout">
+        {/* <div className="flex justify-center"> */}
             {/* <!-- Main --> */}
-            <main className="main">
-                <HeroSection/>
+            {/* <main> */}
+                {/* <HeroSection/> */}
                 {/* <PerkSection/> */}
-                <CategoriesSection/>
-                <BestSellingProduct/>
-            </main>
-        </div>
+                {/* <CategoriesSection/> */}
+                {/* <BestSellingProduct/> */}
+            {/* </main> */}
+        {/* </div> */}
     </div>
     )
 }

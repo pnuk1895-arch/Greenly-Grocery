@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+    --font-custom:'Poppins', Arial, sans-serif;
+}
+
+@llayer case{
+
+    body {
+    @apply font-custom text-[#1a1a1a] bg-[#ffffff] box-border; 
+    }
+    
+    Link {
+        @apply no-underline;
+    }
+    .toggleSpan {
+        @apply block h-0.5 w-full bg-[#1e8e3e] rounded-xs;
+    }
+}

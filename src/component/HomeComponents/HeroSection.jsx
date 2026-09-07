@@ -1,5 +1,5 @@
 import { ArrowRight, Percent } from "lucide-react";
-import basket from "../../asset/basket_image.png";
+import basket from "../../asset/Basket_image.png";
 
 export default function HeroSection() {
   return (

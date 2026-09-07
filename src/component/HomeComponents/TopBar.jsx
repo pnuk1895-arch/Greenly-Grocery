@@ -11,6 +11,8 @@ export default function TopBar() {
     let actionLink = 'flex items-center gap-1.5 font-medium text-[#333333] whitespace-nowrap transition-colors duration-200 ease-linear hover:text-[#1e8e3e]'
     let toggleSpan="block h-0.5 w-full bg-[#1e8e3e] rounded-xs"
 
+    // program
+
     return (
         <header className=" w-full bg-[#ffffff] border-b border-[#eef1ee] sticky top-0 z-50 font-custom " >
             <div className=" mx-auto px-10 py-4 flex justify-between items-center gap-6  ">
@@ -60,7 +62,9 @@ export default function TopBar() {
 
                     <Link to="#" className={`${ actionLink} max-xl:hidden`}>
                         <span className='text-[#333333] shrink-0  hover:text-[#1e8e3e] '><User/></span>
-                        <span>Login / Signup</span>
+                        <Link to='/Login' >Login</Link> 
+                        <p> / </p>
+                        <Link to='/Signup' >Signup</Link>
                     </Link>
 
                     <Link to="#" className="relative flex items-center gap-2.5 md:bg-[#1e8e3e] md:text-[#ffffff] px-4.5 py-2.5 rounded-lg text-base font-semibold transition-colors duration-200 ease-linear hover:bg-[#17722f] sm:max-md:text-[#1e8e3e] max-sm:text-black ">
@@ -71,9 +75,6 @@ export default function TopBar() {
                         <span className="cart-total max-sm:hidden ">₹1,248</span>
                     </Link>
                 </div>
-
-    
-
             </div>
         </header>
 

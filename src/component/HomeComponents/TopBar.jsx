@@ -6,8 +6,8 @@ import { Truck, Heart, User, ShoppingCart } from 'lucide-react';
 export default function TopBar() {
 
     // reuseable css class for one this html file
-    const link=  "font-medium text-[#333333] pb-1.5 relative whitespace-nowrap transition-colors duration-200 ease-linear hover:text-[#1e8e3e]  ";
-    const active ="text-[#1e8e3e] after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-[#1e8e3e] after:rounded-sm";
+    let link=  "font-medium text-[#333333] pb-1.5 relative whitespace-nowrap transition-colors duration-200 ease-linear hover:text-[#1e8e3e]  ";
+    let active ="text-[#1e8e3e] after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-[#1e8e3e] after:rounded-sm";
     let actionLink = 'flex items-center gap-1.5 font-medium text-[#333333] whitespace-nowrap transition-colors duration-200 ease-linear hover:text-[#1e8e3e]'
     let toggleSpan="block h-0.5 w-full bg-[#1e8e3e] rounded-xs"
 
@@ -23,7 +23,7 @@ export default function TopBar() {
                 </button>
 
                 {/* <!-- Logo -->Name */}
-                <div className="flex items-center gap-2 shrink-0 ">
+                <div className="flex items-center gap-2 shrink-0 lg:text-base ">
                     <img src={logo} className="w-10 h-10 flex justify-center items-center rounded-2xl " >
                     </img>
                     <span className="flex flex-col ">

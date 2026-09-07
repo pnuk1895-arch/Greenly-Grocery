@@ -1,26 +1,31 @@
-// import './HomePage.css'
 import TopBar  from '../../component/HomeComponents/TopBar.jsx'
-// import SideBar from '../../component/HomeComponents/SideBar.jsx'
 import HeroSection from '../../component/HomeComponents/HeroSection.jsx'
-// import PerkSection from '../../component/HomeComponents/PerkSection.jsx'
+import PerkSection from '../../component/HomeComponents/PerkSection.jsx'
 import CategoriesSection from '../../component/HomeComponents/CategoriesSection.jsx'
-import BestSellingProduct from '../../component/HomeComponents/BestSellingProduct.jsx'
+import PopularProducts from '../../component/HomeComponents/PopularProducts.jsx'
+import DealOfDay from '../../component/HomeComponents/DealOfTheDay.jsx'
+import RecipesSection from '../../component/HomeComponents/OtherServices.jsx'
+import CustomerReviews from '../../component/HomeComponents/customerReviews.jsx'
+import Footer from '../../component/HomeComponents/FooterSection.jsx'
 
 export default function HomePage(){
     return(
         
-    <div className=''>
+    <div className='w-full'>
+        {/* header  */}
          <TopBar/>
-         {/* <!-- Body --> */}
-        <div className="flex justify-center">
-            {/* <!-- Main --> */}
-            <main>
-                <HeroSection/>
-                {/* <PerkSection/> */}
-                {/* <CategoriesSection/> */}
-                {/* <BestSellingProduct/> */}
-            </main>
-        </div>
+        {/* <!-- Main --> */}
+        <main className='w-full m-auto '>
+            <HeroSection/>
+            <PerkSection/>
+            <CategoriesSection/>
+            <PopularProducts/>
+            <DealOfDay/>
+            <RecipesSection/>
+            <CustomerReviews/>
+        </main>   
+        {/* footer     */}
+        <Footer/>
     </div>
     )
 }

@@ -15,7 +15,7 @@ export default function HomePage(){
         {/* header  */}
          <TopBar/>
         {/* <!-- Main --> */}
-        <main className='w-full m-auto '>
+        <main>
             <HeroSection/>
             <PerkSection/>
             <CategoriesSection/>

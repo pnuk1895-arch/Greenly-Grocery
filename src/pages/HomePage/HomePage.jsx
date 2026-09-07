@@ -5,7 +5,7 @@ import CategoriesSection from '../../component/HomeComponents/CategoriesSection.
 import PopularProducts from '../../component/HomeComponents/PopularProducts.jsx'
 import DealOfDay from '../../component/HomeComponents/DealOfTheDay.jsx'
 import RecipesSection from '../../component/HomeComponents/OtherServices.jsx'
-import CustomerReviews from '../../component/HomeComponents/CustomerReviews.jsx'
+import CustomerReviews from '../../component/HomeComponenets/CustomerReviews.jsx'
 import Footer from '../../component/HomeComponents/FooterSection.jsx'
 
 export default function HomePage(){

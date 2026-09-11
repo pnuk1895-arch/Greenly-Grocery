@@ -2,6 +2,7 @@ import { useLocation, Routes, Route, useNavigate } from "react-router-dom"
 import  HomePage  from './pages/HomePage/HomePage.jsx'
 import  Login  from "./pages/LoginPage/LoginPage.jsx"
 import  SignUp from "./pages/SignupPage/SignupPage.jsx"
+import { Toaster } from "react-hot-toast"
 
 export default function App()
 {
@@ -10,6 +11,9 @@ export default function App()
 
   return( 
     <>
+    <Toaster toastOptions={{
+          duration: 2000,
+        }}/>
       <Routes location={ backgroundLocation || location } >
         <Route path='/' element={<HomePage/>} />
         <Route path="/signup" element={<SignUp/>} />

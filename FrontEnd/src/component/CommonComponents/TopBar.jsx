@@ -2,6 +2,7 @@
 import logo from '/Favicon.png'
 import { Link, useLocation } from 'react-router-dom'
 import { Truck, Heart, User, ShoppingCart } from 'lucide-react';
+import { useAuth } from '../../Auth/Auth';
 
 export default function TopBar() {
 
@@ -13,6 +14,7 @@ export default function TopBar() {
 
     // program
 
+    const { UserEntered, setUserEntered } = useAuth()
     const location = useLocation()
 
     return (
@@ -130,51 +132,34 @@ export default function TopBar() {
                     {/* Login / Signup */}
                     <div className={`${actionLink} max-xl:hidden flex items-center`}>
 
-                        <span className="text-[#1F3A5F] shrink-0">
+                        <span className="text-[#1F3A5F] shrink-0 hover:text-[#F4A261] hover:drop-shadow-[0_0_0.5px]">
                             <User />
                         </span>
 
-                        <Link
-                            to="/Login"
-                            className="hover:text-[#F4A261]"
-                            state={{backgroundLocation:location}}
-                        >
-                            Login
-                        </Link>
+                        {UserEntered ? (
+                            <Link to="/Profile" className="hover:text-[#F4A261]">
+                                Profile
+                            </Link>
+                        ) : (
+                            <>
+                                <Link to="/Login" className="hover:text-[#F4A261]" state={{ backgroundLocation: location }}>
+                                    Login
+                                </Link>
 
-                        <span className="mx-1 text-[#F4A261]">/</span>
+                                <span className="mx-1 text-[#F4A261]">/</span>
 
-                        <Link
-                            to="/Signup"
-                            className="hover:text-[#F4A261]"
-                        >
-                            Signup
-                        </Link>
+                                <Link to="/Signup" className="hover:text-[#F4A261]">
+                                    Signup
+                                </Link>
+                            </>
+                        )
+                        }
+
 
                     </div>
 
                     {/* Cart */}
-                    <Link
-                        to="#"
-                        className="
-                    relative
-                    flex
-                    items-center
-                    gap-2.5
-                    md:bg-[#F4A261]
-                    md:text-white
-                    px-4.5
-                    py-2.5
-                    rounded-lg
-                    text-base
-                    font-semibold
-                    transition-colors
-                    duration-200
-                    hover:bg-[#E89150]
-                    sm:max-md:text-[#F4A261]
-                    max-sm:text-[#1F3A5F]
-                "
-                    >
+                    <Link to="#" className=" relative flex items-center gap-2.5 md:bg-[#F4A261]  md:text-white px-4.5 py-2.5 rounded-lg text-base font-semibold transition-colors duration-200 hover:bg-[#E89150] sm:max-md:text-[#F4A261] max-sm:text-[#1F3A5F]" >
 
                         <span className="relative flex items-center">
                             <ShoppingCart

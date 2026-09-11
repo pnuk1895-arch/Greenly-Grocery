@@ -13,20 +13,19 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import logo from "/Favicon.png"
 import axios from 'axios'
+import { successToast, errorToast } from "../../toast/toast";
+import { useAuth } from "../../Auth/Auth";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const Navigate = useNavigate()
-  const [error, setError] = useState()
+  const { setUserEntered } = useAuth()
+  
 
   function onClose() {
     Navigate('/')
   }
 
-  setTimeout(() => {
-    setError("")
-  }, 3000
-  )
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -38,18 +37,20 @@ export default function Login() {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`,
         {
           formObj: formObj
+        },
+        {
+          withCredentials: true
         }
-
-        // {
-        //   withCredentials: true
-        // }
       )
 
       const data = response.data
-      console.log("message:", data.message)
+      setUserEntered(data?.success)
+      successToast(data?.message)
+      onClose()
+
     } catch (error) {
-      console.log(`error while login ${error.code} ${error.response?.data?.message}`)
-      setError(error.response?.data?.message)
+      console.log(`error while login ${error.code} ${error.response.data.message}`)
+      errorToast( error.response?.data?.message)
     }
 
   }
@@ -96,14 +97,6 @@ export default function Login() {
             Login to continue shopping for your favorite groceries.
           </p>
         </div>
-
-        {error && (
-          <div className="absolute top-44 left-27.5 rounded-sm bg-rose-700/70 animate-error-bar">
-          <p className="px-2 py-0.5 text-white">
-            {error}
-          </p>
-        </div>
-        )}
 
         {/* Form */}
         <form onSubmit={handleSubmit}>

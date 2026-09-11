@@ -14,14 +14,15 @@ import SideImage from '../../asset/basket_image.png'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { useState } from 'react'
-
+import { successToast, errorToast } from "../../toast/toast";
+import { useAuth } from "../../Auth/Auth";
 
 export default function Signup() {
 
   const [showPassword, setshowPassword] = useState(true)
   const [showPasswordS, setshowPasswordS ] = useState(true)
+  const {UserEntered, setUserEntered} = useAuth()
   
-
   const Navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -35,22 +36,27 @@ export default function Signup() {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/Signup`,
         {
           formObj: formObj
+        },
+        {
+          withCredentials:true
         }
       )
       const data = response.data
       console.log(data?.message)
       if(data?.success)
       {
+        setUserEntered(data?.success)
+        successToast(data?.message)
+        
         Navigate("/")
       }
 
     } catch (error) {
-      console.log(`error while signup: ${error.code}, message ${error.response?.data?.message}`)
+      console.log(`error while signup: ${error.code}, error: ${error.message}, message ${error.response?.data?.message}`)
+      errorToast(error.response?.data?.message)
+
     }
-
   }
-
-
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-orange-50 font-sans">

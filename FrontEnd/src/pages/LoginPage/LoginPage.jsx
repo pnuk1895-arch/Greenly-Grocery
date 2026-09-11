@@ -5,26 +5,58 @@ import {
   LockKeyhole,
   Eye,
   EyeOff,
-  Leaf,
   ArrowRight,
   Headphones,
   CircleHelp,
 } from "lucide-react";
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import logo  from "/Favicon.png"
+import logo from "/Favicon.png"
+import axios from 'axios'
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const Navigate= useNavigate()
-  function onClose()
-  {
+  const Navigate = useNavigate()
+  const [error, setError] = useState()
+
+  function onClose() {
     Navigate('/')
+  }
+
+  setTimeout(() => {
+    setError("")
+  }, 3000
+  )
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    const formData = new FormData(e.target)
+    const formObj = Object.fromEntries(formData.entries())
+    try {
+
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`,
+        {
+          formObj: formObj
+        }
+
+        // {
+        //   withCredentials: true
+        // }
+      )
+
+      const data = response.data
+      console.log("message:", data.message)
+    } catch (error) {
+      console.log(`error while login ${error.code} ${error.response?.data?.message}`)
+      setError(error.response?.data?.message)
+    }
+
   }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1F3A5F]/50 p-4 backdrop-blur-sm">
-      
+
       {/* Login Modal */}
       <div className="relative w-full max-w-105 rounded-3xl bg-white p-5 shadow-2xl sm:p-8">
 
@@ -65,9 +97,17 @@ export default function Login() {
           </p>
         </div>
 
+        {error && (
+          <div className="absolute top-44 left-27.5 rounded-sm bg-rose-700/70 animate-error-bar">
+          <p className="px-2 py-0.5 text-white">
+            {error}
+          </p>
+        </div>
+        )}
+
         {/* Form */}
-        <form>
-          
+        <form onSubmit={handleSubmit}>
+
           {/* Email */}
           <div className="mb-4">
             <label
@@ -86,6 +126,7 @@ export default function Login() {
               <input
                 id="email"
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 className="w-full rounded-xl border border-[#FFE0C2] bg-[#FFF9F5] py-3 pl-11 pr-4 text-sm text-[#1F3A5F] outline-none transition focus:border-[#F4A261] focus:ring-2 focus:ring-[#FFE0C2]"
               />
@@ -110,6 +151,7 @@ export default function Login() {
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
+                name="password"
                 placeholder="Enter your password"
                 className="w-full rounded-xl border border-[#FFE0C2] bg-[#FFF9F5] py-3 pl-11 pr-12 text-sm text-[#1F3A5F] outline-none transition focus:border-[#F4A261] focus:ring-2 focus:ring-[#FFE0C2]"
               />

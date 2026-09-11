@@ -4,14 +4,54 @@ import {
   Phone,
   Lock,
   Eye,
+  EyeOff,
   ArrowRight,
   Truck,
   ShieldCheck,
   Leaf,
 } from "lucide-react";
 import SideImage from '../../asset/basket_image.png'
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios'
+import { useState } from 'react'
+
 
 export default function Signup() {
+
+  const [showPassword, setshowPassword] = useState(true)
+  const [showPasswordS, setshowPasswordS ] = useState(true)
+  
+
+  const Navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+
+      const formData = new FormData(e.target);
+      const formObj = Object.fromEntries(formData.entries())
+
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/Signup`,
+        {
+          formObj: formObj
+        }
+      )
+      const data = response.data
+      console.log(data?.message)
+      if(data?.success)
+      {
+        Navigate("/")
+      }
+
+    } catch (error) {
+      console.log(`error while signup: ${error.code}, message ${error.response?.data?.message}`)
+    }
+
+  }
+
+
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-orange-50 font-sans">
       <div className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 py-8 lg:px-16">
@@ -19,7 +59,7 @@ export default function Signup() {
         {/* Background Decorations */}
         <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-orange-100 opacity-70 md:h-80 md:w-80" />
 
-            <img src={SideImage} alt="" className="absolute top-[64%] right-[85%] h-75 w-100"/>
+        <img src={SideImage} alt="" className="absolute top-[64%] right-[85%] h-75 w-100" />
 
         <div className="absolute -right-16 top-1/3 h-64 w-64 rounded-full bg-orange-100 opacity-60 md:h-80 md:w-80" />
 
@@ -55,7 +95,7 @@ export default function Signup() {
 
           {/* Signup Form */}
           <section className="w-full max-w-xl rounded-3xl border border-white bg-white/80 p-6 shadow-xl backdrop-blur-sm sm:p-8 md:p-10">
-            
+
             {/* Heading */}
             <div className="mb-6 text-center">
               <h2 className="text-3xl font-bold text-[#1F3A5F]">
@@ -71,7 +111,7 @@ export default function Signup() {
             </div>
 
             {/* Form */}
-            <form className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3">
 
               {/* Email */}
               <div className="relative">
@@ -82,6 +122,7 @@ export default function Signup() {
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email address"
                   className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
                 />
@@ -96,6 +137,7 @@ export default function Signup() {
 
                 <input
                   type="text"
+                  name="userName"
                   placeholder="Username"
                   className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
                 />
@@ -110,6 +152,7 @@ export default function Signup() {
 
                 <input
                   type="tel"
+                  name="PhoneNumber"
                   placeholder="Phone number"
                   className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
                 />
@@ -123,15 +166,25 @@ export default function Signup() {
                 />
 
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password" }
+                  name="Password"
                   placeholder="Password"
                   className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-12 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
                 />
+                {
+                  showPassword ? <Eye
+                    onClick={() => { setshowPassword(!showPassword) }}
+                    size={19}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-slate-500"
+                  /> :
+                    <EyeOff
+                      onClick={() => { setshowPassword(!showPassword) }}
+                      size={19}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-slate-500"
+                    />
+                }
 
-                <Eye
-                  size={19}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-slate-500"
-                />
+
               </div>
 
               {/* Confirm Password */}
@@ -142,15 +195,24 @@ export default function Signup() {
                 />
 
                 <input
-                  type="password"
+                  type={ showPasswordS ? "text": "password"}
+                  name="ComfirmPassword"
                   placeholder="Confirm password"
                   className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-12 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
                 />
 
-                <Eye
-                  size={19}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-slate-500"
-                />
+                {
+                  showPasswordS ? <Eye
+                    onClick={() => { setshowPasswordS(!showPasswordS) }}
+                    size={19}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-slate-500"
+                  /> :
+                    <EyeOff
+                      onClick={() => { setshowPasswordS(!showPasswordS) }}
+                      size={19}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-slate-500"
+                    />
+                }
               </div>
 
               {/* Submit */}
@@ -218,7 +280,7 @@ export default function Signup() {
             <p className="mt-5 text-center text-sm text-slate-600">
               Already have an account?{" "}
 
-              <button className="font-semibold text-orange-500 hover:underline">
+              <button onClick={() => Navigate('/login', { state: { backgroundLocation: { pathname: "/" } } })} className="font-semibold text-orange-500 hover:underline">
                 Login
               </button>
             </p>

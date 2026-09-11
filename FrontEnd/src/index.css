@@ -2,11 +2,31 @@
 
 @theme {
     --font-custom: 'Poppins', Arial, sans-serif;
-    --primary-orange: #F4A261;
-    --light-orange: #FFE0C2;
-    --dark-blue: #1F3A5F;
-    --white: #FFFFFF;
-    --off-white: #FFF9F5;
+   
+
+  --animate-error-bar: errorBar 3s ease-in-out forwards;
+
+  @keyframes errorBar {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    15% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
 }
 
 @layer case {

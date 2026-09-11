@@ -18,6 +18,7 @@ import { useAuth } from "../../Auth/Auth";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [Loading, setLoading] = useState(false)
   const Navigate = useNavigate()
   const { setUserEntered } = useAuth()
   
@@ -25,10 +26,15 @@ export default function Login() {
   function onClose() {
     Navigate('/')
   }
-
+    
+  setTimeout(()=>{
+      setLoading(false)
+  }, 3000)
 
   async function handleSubmit(e) {
     e.preventDefault()
+
+    setLoading(true)
 
     const formData = new FormData(e.target)
     const formObj = Object.fromEntries(formData.entries())
@@ -49,8 +55,8 @@ export default function Login() {
       onClose()
 
     } catch (error) {
-      console.log(`error while login ${error.code} ${error.response.data.message}`)
-      errorToast( error.response?.data?.message)
+      console.log(`error while login ${error.code} ${error}`)
+      errorToast( error.response.data.message)
     }
 
   }
@@ -173,6 +179,7 @@ export default function Login() {
           {/* Login Button */}
           <button
             type="submit"
+            disabled={Loading}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#F4A261] py-3 text-sm font-semibold text-white transition duration-200 hover:bg-[#e8904e]"
           >
             Login

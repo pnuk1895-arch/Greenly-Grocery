@@ -11,9 +11,7 @@ export default function App()
 
   return( 
     <>
-    <Toaster toastOptions={{
-          duration: 2000,
-        }}/>
+    <Toaster/>
       <Routes location={ backgroundLocation || location } >
         <Route path='/' element={<HomePage/>} />
         <Route path="/signup" element={<SignUp/>} />

@@ -142,7 +142,7 @@ export default function TopBar() {
                             </Link>
                         ) : (
                             <>
-                                <Link to="/Login" className="hover:text-[#F4A261]" state={{ backgroundLocation: location }}>
+                                <Link to="/login" className="hover:text-[#F4A261]" state={{ backgroundLocation: location }}>
                                     Login
                                 </Link>
 
